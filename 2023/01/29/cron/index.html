@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Mysql," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,21 +79,23 @@
 
 
 
-<meta name="description" content="部署 Mysql">
+<meta name="description" content="背景：前置机idoc文件堆积，导致解析文件程序耗时且服务假死。 解决方案：使用linux自带的crontab调度任务定时备份文件夹。 查看当前调度列表 1crontab -l  编辑调度任务文件 1crontab -e  添加任务 1*&#x2F;5 * * * * sh &#x2F;Users&#x2F;hey&#x2F;Desktop&#x2F;job.sh &gt;&gt; &#x2F;Users&#x2F;hey&#x2F;Desktop&#x2F;stdout.log   添">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mysql">
-<meta property="og:url" content="http://yoursite.com/2022/02/07/Mysql-8-0/index.html">
+<meta property="og:title" content="cron">
+<meta property="og:url" content="http://yoursite.com/2023/01/29/cron/index.html">
 <meta property="og:site_name" content="Hello World">
-<meta property="og:description" content="部署 Mysql">
+<meta property="og:description" content="背景：前置机idoc文件堆积，导致解析文件程序耗时且服务假死。 解决方案：使用linux自带的crontab调度任务定时备份文件夹。 查看当前调度列表 1crontab -l  编辑调度任务文件 1crontab -e  添加任务 1*&#x2F;5 * * * * sh &#x2F;Users&#x2F;hey&#x2F;Desktop&#x2F;job.sh &gt;&gt; &#x2F;Users&#x2F;hey&#x2F;Desktop&#x2F;stdout.log   添">
 <meta property="og:locale">
-<meta property="og:image" content="http://yoursite.com/2022/02/07/Mysql-8-0/2.png">
-<meta property="og:image" content="http://yoursite.com/2022/02/07/Mysql-8-0/port.png">
-<meta property="article:published_time" content="2022-02-07T03:31:14.000Z">
-<meta property="article:modified_time" content="2022-03-22T06:18:25.764Z">
+<meta property="og:image" content="http://yoursite.com/2023/01/29/cron/1.png">
+<meta property="og:image" content="http://yoursite.com/2023/01/29/cron/wecom-temp-d826b5b72bcd4ea8f17db96a5ad8277d.png">
+<meta property="og:image" content="http://yoursite.com/2023/01/29/cron/wecom-temp-904854d28adc391afc3f5d78544547ec.png">
+<meta property="og:image" content="http://yoursite.com/2023/01/29/cron/wecom-temp-6305f39726f14a6223f4ca04f44452b1.png">
+<meta property="og:image" content="http://yoursite.com/2023/01/29/cron/01/29/cron/wecom-temp-a9ddc38d2afe8ab9da9a32b1152a43d6.png">
+<meta property="article:published_time" content="2023-01-29T06:32:27.000Z">
+<meta property="article:modified_time" content="2023-02-15T07:55:26.493Z">
 <meta property="article:author" content="Xiao Ming">
-<meta property="article:tag" content="Mysql">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2022/02/07/Mysql-8-0/2.png">
+<meta name="twitter:image" content="http://yoursite.com/2023/01/29/cron/1.png">
 
 
 
@@ -123,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2022/02/07/Mysql-8-0/"/>
+  <link rel="canonical" href="http://yoursite.com/2023/01/29/cron/"/>
 
 
 
 
 
-  <title>Mysql | Hello World</title>
+  <title>cron | Hello World</title>
   
 
 
@@ -246,7 +248,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/02/07/Mysql-8-0/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2023/01/29/cron/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -263,7 +265,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Mysql</h1>
+          <h1 class="post-title" itemprop="name headline">cron</h1>
         
 
         <div class="post-meta">
@@ -275,8 +277,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-02-07T11:31:14+08:00">
-                2022-02-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2023-01-29T14:32:27+08:00">
+                2023-01-29
               </time>
             
 
@@ -286,28 +288,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -320,10 +300,6 @@
 
           
 
-          
-              <div class="post-description">
-                  部署 Mysql
-              </div>
           
 
         </div>
@@ -339,45 +315,39 @@
       
 
       
-        <p>安装：</p>
-<p>平台：Centos7</p>
-<p>一、通过使用 CentOS 包管理器来安装 MySQL 8.0 服务器：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install @mysql</span><br></pre></td></tr></table></figure>
+        <p>背景：前置机idoc文件堆积，导致解析文件程序耗时且服务假死。</p>
+<p>解决方案：使用linux自带的crontab调度任务定时备份文件夹。</p>
+<p>查看当前调度列表</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -l</span><br></pre></td></tr></table></figure>
 
-<p><code>@mysql</code>模块会安装 MySQL 和所有依赖安装包。</p>
-<p>二、启动 MySQL 服务并且启用开机启动功能</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable --now mysqld</span><br></pre></td></tr></table></figure>
+<p>编辑调度任务文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
 
-<p>三、检查 MySQL 服务器是否正在运行</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status mysqld</span><br></pre></td></tr></table></figure>
+<p>添加任务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*/5 * * * * sh /Users/hey/Desktop/job.sh &gt;&gt; /Users/hey/Desktop/stdout.log</span><br></pre></td></tr></table></figure>
 
-<p>设置：</p>
-<p>一、运行<code>mysql_secure_installation</code>脚本，执行一些安全相关的操作，并且设置 MySQL root 用户密码</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mysql_secure_installation</span><br></pre></td></tr></table></figure>
+<p><img src="/2023/01/29/cron/1.png" alt="1"></p>
+<p>添加后效果</p>
+<p><img src="/2023/01/29/cron/wecom-temp-d826b5b72bcd4ea8f17db96a5ad8277d.png" alt="wecom-temp-d826b5b72bcd4ea8f17db96a5ad8277d"></p>
+<p>删除调度任务：</p>
+<p>如果要删除指定调度任务，打开编辑界面，删除指定的调度任务命令即可。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2022/02/07/Mysql-8-0/2.png" alt="2"></p>
-<p>设置root密码，其他的一些比如移除test数据库、重新载入权限表 都选y就行了。</p>
-<p>二、</p>
-<p>创建用户</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER &#x27;hey&#x27;@&#x27;localhost&#x27; IDENTIFIED BY &#x27;密码&#x27;;</span><br><span class="line">CREATE USER &#x27;hey&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;密码&#x27;;</span><br></pre></td></tr></table></figure>
+<p>如果想要删掉全部用户的调度任务，则执行 -r 命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -r</span><br></pre></td></tr></table></figure>
 
-<p>创建数据库</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">create database heyDB default charset utf8 collate utf8_general_ci;</span><br></pre></td></tr></table></figure>
+<p>本机测试小插曲：</p>
+<p>Mac设置cron步骤：</p>
+<p>1：找到cron文件位置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whereis cron</span><br></pre></td></tr></table></figure>
 
-<p>分配权限</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grant</span> <span class="keyword">all</span> privileges <span class="keyword">on</span> heyDB.<span class="operator">*</span> <span class="keyword">to</span> <span class="string">&#x27;hey&#x27;</span>@&quot;localhost&quot; identified <span class="keyword">by</span> &quot;密码&quot;;</span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">all</span> privileges <span class="keyword">on</span> heyDB.<span class="operator">*</span> <span class="keyword">to</span> <span class="string">&#x27;hey&#x27;</span>@&quot;%&quot; identified <span class="keyword">by</span> &quot;密码&quot;;</span><br></pre></td></tr></table></figure>
+<p><img src="/2023/01/29/cron/wecom-temp-904854d28adc391afc3f5d78544547ec.png" alt="wecom-temp-904854d28adc391afc3f5d78544547ec"></p>
+<p>2：打开访达</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open /usr/sbin</span><br></pre></td></tr></table></figure>
 
-<p>删除数据库</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">drop database heyDB</span><br></pre></td></tr></table></figure>
-
-<p>撤销权限</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">revoke all on *.* from hey@localhost;</span><br></pre></td></tr></table></figure>
-
-<p>查看端口号</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">global</span> variables <span class="keyword">like</span> <span class="string">&#x27;port&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2022/02/07/Mysql-8-0/port.png" alt="port"></p>
-
+<p><img src="/2023/01/29/cron/wecom-temp-6305f39726f14a6223f4ca04f44452b1.png" alt="wecom-temp-6305f39726f14a6223f4ca04f44452b1"></p>
+<p>3：拖拽至-&gt;系统偏好设置-&gt;隐私-&gt;完全磁盘访问权限-&gt;右边</p>
+<img src="/2023/01/29/cron/01/29/cron/wecom-temp-a9ddc38d2afe8ab9da9a32b1152a43d6.png" class title="wecom-temp-a9ddc38d2afe8ab9da9a32b1152a43d6">
       
     </div>
     
@@ -392,12 +362,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Mysql/" rel="tag"># Mysql</a>
-          
-        </div>
-      
 
       
       
@@ -407,8 +371,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2022/02/07/Nexus3-X/" rel="next" title="Nexus 3.X">
-                <i class="fa fa-chevron-left"></i> Nexus 3.X
+              <a href="/2022/02/17/linux/" rel="next" title="linux">
+                <i class="fa fa-chevron-left"></i> linux
               </a>
             
           </div>
@@ -416,10 +380,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2022/02/10/note/" rel="prev" title="笔记">
-                笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
